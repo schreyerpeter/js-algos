@@ -1,3 +1,3 @@
-# AlgoCasts
+# Algo practice
 
-Companion repo to a course on Udemy.com
+Interview prep questions
