@@ -14,12 +14,20 @@
 //       ' ### '
 //       '#####'
 
-function pyramid(n) {
-  for (let i = 1; i <= n; i++) {
-    console.log(
-      `${" ".repeat(n - i)}${"#".repeat(2 * i - 1)}${" ".repeat(n - i)}`,
-    );
-  }
+// function pyramid(n) {
+//   for (let i = 1; i <= n; i++) {
+//     console.log(
+//       `${" ".repeat(n - i)}${"#".repeat(2 * i - 1)}${" ".repeat(n - i)}`,
+//     );
+//   }
+// }
+
+function pyramid(n, row = 1) {
+  if (row > n) return;
+  console.log(
+    `${" ".repeat(n - row)}${"#".repeat(2 * row - 1)}${" ".repeat(n - row)}`,
+  );
+  pyramid(n, row + 1);
 }
 
 module.exports = pyramid;
