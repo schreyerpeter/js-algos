@@ -18,12 +18,28 @@
 //   return result[n];
 // }
 
-function fib(n) {
+function memoize(fn) {
+  const cache = {};
+  return function (x) {
+    if (cache[x]) {
+      return cache[x];
+    }
+
+    const result = fn(x);
+    cache[x] = result;
+
+    return result;
+  };
+}
+
+function slowFib(n) {
   if (n < 2) {
     return n;
   }
 
   return fib(n - 1) + fib(n - 2);
 }
+
+const fib = memoize(slowFib);
 
 module.exports = fib;
