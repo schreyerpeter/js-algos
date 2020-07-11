@@ -7,18 +7,14 @@
 // The left-to-right diagonal = . The right to left diagonal = . Their absolute difference is .
 
 function diagonalDifference(arr) {
-  let endColumn = arr[0].length - 1,
+  let startColumn = 0,
+    endColumn = arr[0].length - 1,
     backslashSum = 0,
     forwardslashSum = 0;
   for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr[i].length; j++) {
-      if (i === j) {
-        backslashSum += arr[i][j];
-      }
-      if (j === endColumn) {
-        forwardslashSum += arr[i][j];
-      }
-    }
+    backslashSum += arr[i][startColumn];
+    forwardslashSum += arr[i][endColumn];
+    startColumn++;
     endColumn--;
   }
   return Math.abs(backslashSum - forwardslashSum);
