@@ -17,9 +17,19 @@
 // Your algorithm should run in O(n) time and uses constant extra space.
 
 function firstMissingPositive(nums) {
+  const hash = {};
+
+  for (let i = 0; i < nums.length; i++) {
+    hash[nums[i]] = 1;
+  }
+
   let n = 1;
-  while (nums.indexOf(n) !== -1) {
+
+  while (hash[n]) {
     n++;
   }
+
   return n;
 }
+
+module.exports = firstMissingPositive;
