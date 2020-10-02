@@ -21,11 +21,10 @@ function frequencyCounter(first, second) {
   // decrement match from second, and delete key if count goes to zero
   for (const number of first) {
     const numberSquared = number ** 2;
-    if (numberSquared in squaredNumbers) {
-      squaredNumbers[numberSquared] = squaredNumbers[numberSquared] - 1;
-      if (squaredNumbers[numberSquared] === 0)
-        delete squaredNumbers[numberSquared];
-    }
+    if (!(numberSquared in squaredNumbers)) return false;
+    squaredNumbers[numberSquared] = squaredNumbers[numberSquared] - 1;
+    if (squaredNumbers[numberSquared] === 0)
+      delete squaredNumbers[numberSquared];
   }
   return Object.keys(squaredNumbers).length === 0;
 }
